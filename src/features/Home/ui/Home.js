@@ -31,7 +31,7 @@ class Home extends Component {
 
 
 
-export default RootNavigation
+export default Home
 
 
 

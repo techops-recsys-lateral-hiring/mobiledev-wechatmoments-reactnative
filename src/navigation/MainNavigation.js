@@ -1,12 +1,12 @@
-import { Navigation } from 'react-native-navigation';
 import Counter from '../features/Counter/ui/Counter';
+import React, { Component } from "react";
 import Home from '../features/Home/ui/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 const Stack = createNativeStackNavigator();
-export default RootNavigation = () => {
+const MainNavigation = () => {
     return (
         <NavigationContainer>
         <Stack.Navigator>
@@ -21,3 +21,5 @@ export default RootNavigation = () => {
     )
 
   }
+
+  export default MainNavigation
