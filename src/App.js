@@ -21,7 +21,7 @@ import {
 } from 'react-native';
 
 import { connect } from 'react-redux';
-import { increment } from './actions/HomeActions';
+import { increment } from './features/HomeActions';
 import { bindActionCreators } from 'redux'
 
 import {
@@ -31,18 +31,22 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Counter from './Counter';
-
+import Counter from './features/Counter/ui/Counter';
+import { Navigation } from 'react-native-navigation';
+import RootNavigation from './features/Home/ui/Home';
 
 
 const store = configureStore()
+
+
+
 
 class App extends Component {
 
   render() {
   return(
 <Provider store={store}>
-    <Counter />
+    <RootNavigation />
   </Provider>
 )
 
