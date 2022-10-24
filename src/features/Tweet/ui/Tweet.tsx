@@ -70,6 +70,8 @@ const styles: Partial<BasicStyle> & AdditionalStyle = StyleSheet.create<
     paddingBottom: 8,
     paddingTop: 8,
     paddingRight: 8,
+    borderBottomColor: 'lightgrey',
+    borderBottomWidth: 1,
   },
   icon: {
     marginRight: 16,

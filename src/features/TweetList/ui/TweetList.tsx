@@ -48,6 +48,7 @@ export const TweetList = connect(mapStateToProps)(TweetListComponent);
 
 const styles: Partial<BasicStyle> = StyleSheet.create<Partial<BasicStyle>>({
   container: {
+    backgroundColor: 'white',
     flex: 1,
     paddingBottom: 8,
     paddingRight: 8,
