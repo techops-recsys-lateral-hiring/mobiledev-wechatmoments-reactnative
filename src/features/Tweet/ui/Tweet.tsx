@@ -7,6 +7,7 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
+
 import {BasicStyle, ITweet} from '../../../types';
 
 interface ITweetProps {

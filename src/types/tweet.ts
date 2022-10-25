@@ -1,21 +1,21 @@
 interface Image {
-	url: string,
+  url: string;
 }
 
 interface Sender {
-	username: string,
-	nick: string,
-	avatar: string,
+  username: string;
+  nick: string;
+  avatar: string;
 }
 
 interface Comment {
-	content: string,
-	sender: Sender,
+  content: string;
+  sender: Sender;
 }
 
 export interface ITweet {
-	sender: Sender,
-	images?: Array<Image>
-	content?: string,
-	comments: Array<Comment>
+  sender: Sender;
+  images?: Array<Image>;
+  content?: string;
+  comments: Array<Comment>;
 }

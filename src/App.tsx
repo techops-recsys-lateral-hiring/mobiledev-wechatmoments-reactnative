@@ -6,19 +6,16 @@
  * @flow strict-local
  */
 
-import React, { ReactElement } from 'react';
-import { Provider } from 'react-redux';
+import React, {ReactElement} from 'react';
+import {Provider} from 'react-redux';
 import MainNavigation from './navigation/MainNavigation';
 
-import configureStore  from './reducers/store';
-
-const store = configureStore()
+import {store} from './store';
 
 export function App(): ReactElement {
   return (
     <Provider store={store}>
       <MainNavigation />
     </Provider>
-  )
+  );
 }
-

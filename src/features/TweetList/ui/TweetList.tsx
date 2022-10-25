@@ -1,33 +1,23 @@
-import React, {ReactElement, useEffect, useState} from 'react';
+import React, {ReactElement, useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 
-import {getRequest} from '../../../network/Network';
-import {BasicStyle, ITweet} from '../../../types';
-import {Tweet} from '../../Tweet/ui/Tweet';
+import {BasicStyle, ITweet, RootState} from './../../../types';
+import {Tweet} from './../../../features/Tweet/ui/Tweet';
+import {useAppDispatch} from './../../../hooks';
+import {fetchUserTweets} from './../../../features/TweetList/state/tweets.thunk';
 
 interface ITweetListProps {
   tweets: Array<ITweet>;
 }
 
 function TweetListComponent({tweets}: ITweetListProps): ReactElement {
-  [tweets, setDataTweets] = useState<Array<ITweet>>([]);
+  const dispatch = useAppDispatch();
 
-  function onSuccess(data: any): void {
-    setDataTweets(data as Array<ITweet>);
-  }
-
-  function onError(error: any): void {
-    console.log(error);
-  }
   useEffect(() => {
-    getRequest(
-      'https://thoughtworks-ios.herokuapp.com/user/jsmith/tweets',
-      onSuccess,
-      onError,
-    );
-  }, []);
+    dispatch(fetchUserTweets('jsmith'));
+  }, [dispatch]);
 
   return (
     <View style={styles.container}>
@@ -39,9 +29,9 @@ function TweetListComponent({tweets}: ITweetListProps): ReactElement {
   );
 }
 
-const mapStateToProps = (state: any) =>
+const mapStateToProps = (state: RootState) =>
   ({
-    tweets: [],
+    tweets: state.tweets.data,
   } as ITweetListProps);
 
 export const TweetList = connect(mapStateToProps)(TweetListComponent);

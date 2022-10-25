@@ -1,8 +1,8 @@
-import Counter from '../features/Counter/ui/Counter';
 import React, {ReactElement} from 'react';
-import {TweetList} from '../features/TweetList/ui/TweetList';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+import {TweetList} from '../features/TweetList/ui/TweetList';
 
 const Stack = createNativeStackNavigator();
 const MainNavigation = (): ReactElement => {
@@ -14,7 +14,6 @@ const MainNavigation = (): ReactElement => {
           component={TweetList}
           options={{title: 'Moments'}}
         />
-        <Stack.Screen name="Counter" component={Counter} />
       </Stack.Navigator>
     </NavigationContainer>
   );
