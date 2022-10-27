@@ -1,17 +1,8 @@
-import React, { ReactElement } from "react";
+import React, {ReactElement} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
 import Home from '../features/Home/ui/Home';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Button,Image
-} from 'react-native'
-
-
-import {TweetList} from '../features/TweetList/ui/TweetList';
 
 const Stack = createNativeStackNavigator();
 const MainNavigation = (): ReactElement => {
@@ -21,7 +12,7 @@ const MainNavigation = (): ReactElement => {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ title: null, headerTransparent: true,}}
+          options={{title: 'Moments', headerTransparent: true}}
         />
       </Stack.Navigator>
     </NavigationContainer>
