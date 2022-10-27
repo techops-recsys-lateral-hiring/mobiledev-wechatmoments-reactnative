@@ -21,7 +21,7 @@ export function Tweet({tweet}: ITweetProps): ReactElement {
   return (
     <View style={styles.container}>
       <Image
-        style={styles.icon}
+        style={styles.image}
         source={{
           uri: tweet?.sender?.avatar || '',
           width: 40,
@@ -40,7 +40,7 @@ export function Tweet({tweet}: ITweetProps): ReactElement {
             {tweet.images.map((image, index) => (
               <Image
                 key={image?.url || `image-${index}`}
-                style={styles.icon}
+                style={styles.image}
                 source={{
                   uri: image?.url || '',
                   width: 64,
@@ -74,7 +74,7 @@ const styles: Partial<BasicStyle> & AdditionalStyle = StyleSheet.create<
     borderBottomColor: 'lightgrey',
     borderBottomWidth: 1,
   },
-  icon: {
+  image: {
     marginRight: 16,
     borderColor: 'lightgrey',
     borderWidth: 1,

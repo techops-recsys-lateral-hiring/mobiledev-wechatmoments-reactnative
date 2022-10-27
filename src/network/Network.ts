@@ -1,26 +1,6 @@
-import axios, {AxiosResponse, AxiosError} from 'axios';
+import axios from 'axios';
+const BASE_URL = 'https://thoughtworks-ios.herokuapp.com';
 
-export async function getRequest(url: string) {
-  return await axios.get(url);
+export async function getRequest(url: string): Promise<any> {
+  return await axios.get(`${BASE_URL}/${url}`);
 }
-
-export const postRequest = (
-  url: string,
-  successHandler: (data: any) => any,
-  errorHandler: (data: any) => any,
-  requestBody: any,
-) => {
-  axios
-    .post(url, requestBody)
-    .then((response: AxiosResponse) => {
-      if (response.status === 200) {
-        successHandler(response.data);
-      } else {
-        errorHandler(response.data);
-      }
-    })
-    .catch((error: AxiosError) => {
-      errorHandler(error);
-    })
-    .finally(() => {});
-};
