@@ -19,7 +19,7 @@ export function Tweet({tweet}: ITweetProps): ReactElement {
     return <></>;
   }
   return (
-    <View style={styles.container}>
+    <View testID="tweet-wrapper" style={styles.container}>
       <Image
         style={styles.image}
         source={{
@@ -33,12 +33,17 @@ export function Tweet({tweet}: ITweetProps): ReactElement {
           <Text style={styles.sender}>
             {tweet?.sender?.nick || tweet?.sender?.username}
           </Text>
-          {tweet?.content && <Text style={styles.text}>{tweet.content}</Text>}
+          {tweet?.content && (
+            <Text testID="tweet-content" style={styles.text}>
+              {tweet.content}
+            </Text>
+          )}
         </View>
         {tweet?.images?.length && (
-          <View style={styles.imagesWrapper}>
+          <View testID="tweet-images-wrapper" style={styles.imagesWrapper}>
             {tweet.images.map((image, index) => (
               <Image
+                testID="tweet-image"
                 key={image?.url || `image-${index}`}
                 style={styles.image}
                 source={{
@@ -76,8 +81,7 @@ const styles: Partial<BasicStyle> & AdditionalStyle = StyleSheet.create<
   },
   image: {
     marginRight: 16,
-    borderColor: 'lightgrey',
-    borderWidth: 1,
+    backgroundColor: '#e4f0f5',
   },
   imagesWrapper: {
     flexDirection: 'row',

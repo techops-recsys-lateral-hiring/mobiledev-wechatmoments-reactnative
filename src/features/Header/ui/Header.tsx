@@ -18,7 +18,7 @@ interface IHeaderProps {
   user: IUser;
 }
 
-function HeaderComponent({user}: IHeaderProps): ReactElement {
+export function HeaderComponent({user}: IHeaderProps): ReactElement {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -26,14 +26,16 @@ function HeaderComponent({user}: IHeaderProps): ReactElement {
   }, [dispatch]);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="header-container">
       <ImageBackground
         style={styles.backgroundImage}
         source={{
-          uri: user['profile-image'],
+          uri: user.profileImage,
         }}>
         <View style={styles.userWrapper}>
-          <Text style={styles.text}>{user.nick}</Text>
+          <Text testID="header-username" style={styles.text}>
+            {user.nick}
+          </Text>
           <Image
             style={styles.image}
             source={{
@@ -70,8 +72,7 @@ const styles: Partial<BasicStyle> & AdditionalStyles = StyleSheet.create<
   image: {
     marginBottom: -24,
     marginRight: 24,
-    borderColor: 'lightgrey',
-    borderWidth: 1,
+    backgroundColor: '#e4f0f5',
   },
   text: {
     fontWeight: 'bold',
@@ -83,6 +84,7 @@ const styles: Partial<BasicStyle> & AdditionalStyles = StyleSheet.create<
     height: 200,
     alignItems: 'flex-end',
     justifyContent: 'flex-end',
+    backgroundColor: '#f5f5f5',
   },
   userWrapper: {
     display: 'flex',
