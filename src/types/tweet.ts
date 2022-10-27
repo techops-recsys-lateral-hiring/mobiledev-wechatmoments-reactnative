@@ -17,5 +17,5 @@ export interface ITweet {
   sender: Sender;
   images?: Array<Image>;
   content?: string;
-  comments: Array<Comment>;
+  comments?: Array<Comment>;
 }

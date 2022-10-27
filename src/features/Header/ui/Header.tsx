@@ -18,7 +18,7 @@ interface IHeaderProps {
   user: IUser;
 }
 
-function HeaderComponent({user}: IHeaderProps): ReactElement {
+export function HeaderComponent({user}: IHeaderProps): ReactElement {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -26,14 +26,16 @@ function HeaderComponent({user}: IHeaderProps): ReactElement {
   }, [dispatch]);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="header-container">
       <ImageBackground
         style={styles.backgroundImage}
         source={{
           uri: user['profile-image'],
         }}>
         <View style={styles.userWrapper}>
-          <Text style={styles.text}>{user.nick}</Text>
+          <Text testID="header-username" style={styles.text}>
+            {user.nick}
+          </Text>
           <Image
             style={styles.image}
             source={{
