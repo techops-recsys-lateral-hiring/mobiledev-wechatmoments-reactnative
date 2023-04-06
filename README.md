@@ -88,7 +88,7 @@ The below screenshots are from Wechat App, they are for reference/inspiration th
 
 #### Tech requirements:
 
-- The data JSON will be hosted at https://thoughtworks-ios.herokuapp.com
+- The data JSON will be hosted at https://techops-recsys-lateral-hiring.github.io/moments-data/
 - An example of the response in `tweets.mock.ts`
 - Unit tests are appreciated.
 - Functional programming is appreciated
